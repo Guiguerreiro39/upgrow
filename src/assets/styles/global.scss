@@ -1,0 +1,31 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+    @apply bg-gray-200;
+    @apply overflow-hidden;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+.full {
+    @apply w-full;
+    @apply h-full;
+}

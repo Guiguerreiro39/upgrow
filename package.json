@@ -1,0 +1,29 @@
+{
+    "name": "upgrow",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "dependencies": {
+        "apexcharts": "^3.22.2",
+        "mdue": "^0.1.2",
+        "primevue": "^3.0.1",
+        "v-click-outside": "^3.1.2",
+        "vue": "^3.0.2",
+        "vue-router": "^4.0.0-rc.5",
+        "vue3-apexcharts": "^1.1.1"
+    },
+    "devDependencies": {
+        "@vue/compiler-sfc": "^3.0.2",
+        "autoprefixer": "^9.8.6",
+        "dotenv": "^8.2.0",
+        "node-sass": "^5.0.0",
+        "postcss": "^7.0.35",
+        "sass": "^1.28.0",
+        "sass-loader": "^10.0.5",
+        "tailwind-scrollbar": "^1.0.1",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
+        "vite": "^1.0.0-rc.8"
+    }
+}
