@@ -23,51 +23,13 @@
 </template>
 
 <script>
-import { monthList, taskTypes } from "../../utils/constants.js";
+import { taskTypes } from "../../utils/constants.js";
 
 export default {
     inject: ["store"],
     methods: {
         toggleTask(id, date) {
             this.store.toggleTask(id, date);
-        },
-        activeTasks(date) {
-            if (
-                Object.keys(this.store.state.tasks).indexOf(date.toString()) ==
-                -1
-            ) {
-                return [];
-            }
-
-            return this.store.state.tasks[date].filter((task) => {
-                return task.active;
-            });
-        },
-        formatDay(date, today) {
-            if (date.getFullYear() == today.getFullYear()) {
-                if (
-                    date.getMonth() == today.getMonth() &&
-                    date.getDate() == today.getDate()
-                ) {
-                    return "Today";
-                }
-
-                if (
-                    date.getMonth() == today.getMonth() &&
-                    date.getDate() == today.getDate() + 1
-                ) {
-                    return "Tomorrow";
-                }
-
-                if (
-                    date.getMonth() == today.getMonth() + 1 &&
-                    today.getDate() == 1
-                ) {
-                    return "Tomorrow";
-                }
-            }
-
-            return "";
         },
     },
     computed: {
@@ -84,52 +46,8 @@ export default {
 
             return types;
         },
-        sortedTasks: function () {
-            var tasks = [];
-            var today = new Date(
-                new Date().getFullYear(),
-                new Date().getMonth(),
-                new Date().getDate()
-            );
-
-            for (var day in this.store.state.tasks) {
-                if (
-                    new Date(day) >= today &&
-                    this.store.state.tasks[day].length > 0 &&
-                    this.activeTasks(day).length > 0
-                ) {
-                    tasks.push([day, this.activeTasks(day)]);
-                }
-            }
-
-            tasks.sort(function (a, b) {
-                return new Date(a[0]) - new Date(b[0]);
-            });
-
-            return tasks;
-        },
         formattedTasks: function () {
-            var tasks = this.sortedTasks;
-            var today = new Date(
-                new Date().getFullYear(),
-                new Date().getMonth(),
-                new Date().getDate()
-            );
-
-            tasks = tasks.map((value) => {
-                var date = new Date(value[0]);
-                var format = this.formatDay(date, today);
-
-                if (format.length > 0) {
-                    return [format, "", date, value[1]];
-                }
-
-                var month = monthList[date.getMonth()];
-                var day = date.getDate();
-                return [day, month, date, value[1]];
-            });
-
-            return tasks;
+            return this.store.formattedActiveTasks();
         },
     },
 };

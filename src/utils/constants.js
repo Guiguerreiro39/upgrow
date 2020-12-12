@@ -1,4 +1,19 @@
-import { BriefcaseOutline, Car, PartyPopper, Home, Calendar, Cog } from "mdue";
+import {
+    BriefcaseOutline,
+    Car,
+    PartyPopper,
+    Home,
+    Calendar,
+    Cog,
+    HeartOutline,
+    Heart,
+    Star,
+    StarOutline,
+    Facebook,
+    Twitter,
+    Linkedin,
+    Pinterest,
+} from "mdue";
 
 export const monthList = [
     "January",
@@ -52,5 +67,41 @@ export const navItems = {
     settings: {
         id: 2,
         icon: Cog,
+    },
+};
+
+export const social = {
+    like: {
+        id: 0,
+        icon: HeartOutline,
+        selectIcon: Heart,
+    },
+    favorite: {
+        id: 1,
+        icon: StarOutline,
+        selectIcon: Star,
+    },
+};
+
+export const share = {
+    facebook: {
+        id: 0,
+        url: "https://www.facebook.com/sharer/sharer.php?u=",
+        icon: Facebook,
+    },
+    twitter: {
+        id: 1,
+        url: "https://twitter.com/intent/tweet?url=",
+        icon: Twitter,
+    },
+    linkedin: {
+        id: 2,
+        url: "https://www.linkedin.com/shareArticle?mini=true&url=",
+        icon: Linkedin,
+    },
+    pinterest: {
+        id: 3,
+        url: "https://pinterest.com/pin/create/button/?url=",
+        icon: Pinterest,
     },
 };

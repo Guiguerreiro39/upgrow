@@ -7,11 +7,13 @@
     },
     "dependencies": {
         "apexcharts": "^3.22.2",
+        "chart.js": "^2.9.4",
         "mdue": "^0.1.2",
         "primevue": "^3.0.1",
-        "v-click-outside": "^3.1.2",
         "vue": "^3.0.2",
+        "vue-chartkick": "^0.6.1",
         "vue-router": "^4.0.0-rc.5",
+        "vue-trend-chart": "^0.15.3",
         "vue3-apexcharts": "^1.1.1"
     },
     "devDependencies": {

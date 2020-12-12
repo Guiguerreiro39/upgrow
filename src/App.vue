@@ -1,7 +1,7 @@
 <template>
     <Sidebar @selected="changeSelected" :selected="selected" />
     <main class="ml-80 h-screen">
-        <Home v-if="selected == 0" />
+        <Home v-show="selected == 0" />
     </main>
 </template>
 

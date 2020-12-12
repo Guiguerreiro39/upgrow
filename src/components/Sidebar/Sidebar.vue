@@ -31,20 +31,16 @@
             </button>
         </div>
     </nav>
-    <CreateTask v-if="toggleModal" @closeModal="toggleModal = false" />
+    <CreateTask v-show="toggleModal" @closeModal="toggleModal = false" />
 </template>
 
 <script>
 import Tasks from "./Tasks.vue";
 import CreateTask from "./CreateTask.vue";
-import vClickOutside from "v-click-outside";
 import { navItems } from "../../utils/constants.js";
 
 export default {
     name: "Sidebar",
-    directives: {
-        clickOutside: vClickOutside.directive,
-    },
     components: {
         Tasks,
         CreateTask,

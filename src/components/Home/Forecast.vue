@@ -1,31 +1,35 @@
 <template>
-    <div
-        v-if="typeof forecast.list != 'undefined'"
-        class="grid grid-cols-2 gap-2"
-    >
+    <div class="flex flex-col text-center">
+        <h1 class="text-lg font-medium text-dark pb-4">{{ month }}</h1>
         <div
-            v-for="(date, index) in forecastResults"
-            :key="index"
-            class="card"
-            @click="setSelected(index)"
-            :selected="index == selected"
+            v-if="typeof forecast.list != 'undefined'"
+            class="grid grid-cols-2 gap-2 h-full"
         >
-            <img
-                v-bind:src="icon + date.card.icon + '@2x.png'"
-                v-bind:alt="date.card.main"
-                class="inline w-20"
-            />
-            <p class="date">
-                <span class="day">{{ date.format[2] }}</span
-                ><span class="opacity-70">{{ date.format[4] }}</span
-                >, <span class="opacity-70">{{ date.format[0] }}</span>
-            </p>
+            <div
+                v-for="(date, index) in forecastResults"
+                :key="index"
+                class="card"
+                @click="setSelected(index)"
+                :selected="index == selected"
+            >
+                <img
+                    v-bind:src="icon + date.card.icon + '@2x.png'"
+                    v-bind:alt="date.card.main"
+                    class="inline w-20"
+                />
+                <p class="date">
+                    <span class="day">{{ date.format[2] }}</span
+                    ><span class="opacity-70">{{ date.format[4] }}</span
+                    >, <span class="opacity-70">{{ date.format[0] }}</span>
+                </p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import { dayFormat } from "../../utils/functions.js";
+import { monthList } from "../../utils/constants.js";
 
 export default {
     props: ["longitude", "latitude"],
@@ -63,6 +67,9 @@ export default {
         },
     },
     computed: {
+        month: function () {
+            return monthList[new Date().getMonth()];
+        },
         forecastResults: function () {
             var list = this.forecast.list;
             var results = {};
