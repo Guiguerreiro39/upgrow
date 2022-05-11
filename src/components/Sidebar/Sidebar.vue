@@ -48,7 +48,6 @@ export default {
     props: ["selected"],
     data() {
         return {
-            items: ["Home", "Calendar", "Settings"],
             toggleModal: false,
         };
     },

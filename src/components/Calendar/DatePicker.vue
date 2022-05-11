@@ -58,7 +58,9 @@
 
 <script>
 import { monthList, dayList } from "../../utils/constants.js";
+import { daysFullMonth } from "./functions.js";
 import { ArrowRightDropCircleOutline, ArrowLeftDropCircleOutline } from "mdue";
+
 export default {
     components: {
         ArrowLeftDropCircleOutline,
@@ -93,52 +95,9 @@ export default {
         dateYear: function () {
             return this.year;
         },
-        monthDays: function () {
-            var month = this.month;
-            var year = this.year;
-            var date = new Date(year, month, "1");
-            var days = {};
-
-            while (date.getMonth() === month) {
-                days[date.getDate()] = date.getDay();
-                date.setDate(date.getDate() + 1);
-            }
-
-            return days;
-        },
         weekDays: function () {
-            var weeks = [];
-            var days = [];
-
-            for (var day in this.monthDays) {
-                while (this.monthDays[day] != days.length) {
-                    days.push("");
-                }
-
-                days.push(day);
-
-                if (
-                    this.monthDays[day] === 6 ||
-                    parseInt(day) === Object.values(this.monthDays).length
-                ) {
-                    weeks.push(days);
-                    days = [];
-                }
-            }
-
-            if (weeks.length != 0) {
-                while (weeks[weeks.length - 1].length !== 7) {
-                    weeks[weeks.length - 1].push("");
-                }
-                if (weeks.length < 6) {
-                    weeks[5] = [];
-                    while (weeks[5].length !== 7) {
-                        weeks[5].push("");
-                    }
-                }
-            }
-
-            return weeks;
+            var days = daysFullMonth(this.month, this.year);
+            return days;
         },
     },
     methods: {

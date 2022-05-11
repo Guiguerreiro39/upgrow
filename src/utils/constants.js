@@ -60,14 +60,14 @@ export const navItems = {
         id: 0,
         icon: Home,
     },
-    calendar: {
-        id: 1,
-        icon: Calendar,
-    },
-    settings: {
-        id: 2,
-        icon: Cog,
-    },
+    // calendar: {
+    //     id: 1,
+    //     icon: Calendar,
+    // },
+    // settings: {
+    //     id: 2,
+    //     icon: Cog,
+    // },
 };
 
 export const social = {
